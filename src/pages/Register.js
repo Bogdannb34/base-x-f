@@ -3,12 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-const {
-    REACT_APP_REGISTER_URL,
-    REACT_APP_CHECK_USER,
-    REACT_APP_CHECK_EMAIL,
-    REACT_APP_CHECK_PWD
-} = process.env;
+import {
+    REGISTER_URL,
+    CHECK_USER,
+    CHECK_EMAIL,
+    CHECK_PWD
+} from '../helpers/constant';
+import '../styles/form.css';
 
 const Register = () => {
 
@@ -40,17 +41,17 @@ const Register = () => {
     }, []);
 
     useEffect(() => {
-        const result = REACT_APP_CHECK_USER.test(user);
+        const result = CHECK_USER.test(user);
         setValidUname(result);
     }, [user]);
 
     useEffect(() => {
-        const result = REACT_APP_CHECK_EMAIL.test(email);
+        const result = CHECK_EMAIL.test(email);
         setValidEmail(result);
     }, [email]);
 
     useEffect(() => {
-        const result = REACT_APP_CHECK_PWD.test(pass);
+        const result = CHECK_PWD.test(pass);
         console.log(result);
         console.log(pass);
         setValidPass(result);
@@ -64,15 +65,15 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const valid1 = REACT_APP_CHECK_USER.test(user);
-        const valid2 = REACT_APP_CHECK_EMAIL.test(email);
-        const valid3 = REACT_APP_CHECK_PWD.test(pass);
+        const valid1 = CHECK_USER.test(user);
+        const valid2 = CHECK_EMAIL.test(email);
+        const valid3 = CHECK_PWD.test(pass);
         if (!valid1 || !valid2 || !valid3) {
             setErrMsg("Invalid Entry");
             return;
         }
         try {
-            const response = await axios.post(REACT_APP_REGISTER_URL,
+            const response = await axios.post(REGISTER_URL,
                 JSON.stringify({
                     username: user, email: email, password: pass
                 }),
@@ -120,7 +121,6 @@ const Register = () => {
                     autoComplete='off'
                     onChange={(e) => setUser(e.target.value)}
                     required
-                    aria-invalid={validUname ? "false" : "true"}
                     aria-describedby="uidnote"
                     onFocus={() => setUserFocus(true)}
                     onBlur={() => setUserFocus(false)}
@@ -147,7 +147,6 @@ const Register = () => {
                     autoComplete='off'
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    aria-invalid={validEmail ? "false" : "true"}
                     aria-describedby="mailnote"
                     onFocus={() => setEmailFocus(true)}
                     onBlur={() => setEmailFocus(false)}
@@ -172,7 +171,6 @@ const Register = () => {
                     id='password'
                     onChange={(e) => setPass(e.target.value)}
                     required
-                    aria-invalid={validPass ? "false" : "true"}
                     aria-describedby="passnote"
                     onFocus={() => setPassFocus(true)}
                     onBlur={() => setPassFocus(false)}
@@ -200,7 +198,6 @@ const Register = () => {
                     id='confirm_pass'
                     onChange={(e) => setMatchPass(e.target.value)}
                     required
-                    aria-invalid={validMatch ? "false" : "true"}
                     aria-describedby="confirmnote"
                     onFocus={() => setMatchFocus(true)}
                     onBlur={() => setMatchFocus(false)}

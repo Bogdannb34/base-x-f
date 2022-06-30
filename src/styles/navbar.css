@@ -18,10 +18,10 @@
 }
 
 .header .navbar a {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   color: #aaa;
   display: inline-block;
-  margin: 0 0.8rem;
+  margin: 0 1rem;
 }
 
 .header .navbar a:hover {
@@ -36,26 +36,6 @@
 
 .logo .logo-icon {
   color: #29d9d5;
-  padding-right: 0.5rem;
-}
-
-.navbar {
-  width: 70%;
-  display: flex;
-  align-items: center;
-}
-
-.navbar .nav-left {
-  margin: auto;
-  text-align: center;
-}
-
-.navbar .nav-right {
-  margin: auto;
-  text-align: center;
-}
-
-.navbar .nav-icon {
   padding-right: 0.5rem;
 }
 

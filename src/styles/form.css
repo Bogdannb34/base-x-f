@@ -1,0 +1,85 @@
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 9rem;
+  padding: 1rem;
+  background-color: rgba(232, 216, 216, 0.4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button,
+textarea {
+  font-size: 1.8rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+label,
+button {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.35rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.35rem;
+}
+
+.errMsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.last {
+  display: inline-block;
+}

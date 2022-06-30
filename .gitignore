@@ -6,7 +6,7 @@
 .pnp.js
 
 #file
-project.env
+constant.js
 
 # testing
 /coverage
