@@ -1,14 +1,21 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faStopwatch20, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useLogout from '../hooks/useLogout';
 import '../styles/navbar.css';
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
+    const logout = useLogout();
     const [menuIcon, setMenuIcon] = useState(false);
 
     const handleMenuIcon = () => setMenuIcon(!menuIcon);
+
+    const signOut = async () => {
+        await logout();
+        navigate("/login");
+    };
 
     return (
         <header className="header">
@@ -21,7 +28,7 @@ const Navbar = () => {
                 <Link to="/contact">Contacts</Link>
                 <Link to="/register">Register</Link>
                 <Link to="/login">Login</Link>
-                <Link to="/logout">Logout</Link>
+                <button onClick={signOut}>Logout</button>
             </nav>
         </header>
     )
